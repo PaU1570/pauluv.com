@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- For bootsrap -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css') }}">
+
+	<title>pauluv</title>
+	<meta name="author" content="Paul Uriarte Vicandi">
+	<meta name="description" content="Ongi Etorri\">
+</head>
+
+<body>
+<header>
+	<div class="container text-center">
+		<div class="navbar-brand">
+			<!--<img src="{{ url_for('static', filename='img/logo.png' )}}">-->
+		<h1>pauluv</h1>
+		</div>
+		<ul class="nav nav-pills justify-content-center">
+		  <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+		  <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+		</ul>
+	</div>
+
+	{% block content %}
+	{% endblock %}
+	<script src="{{ url_for('static', filename='bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js') }}"></script>
+  </body>
+</header>
+</body>
+
+</html>
