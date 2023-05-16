@@ -4,7 +4,7 @@
 __pycache__/
 
 instance/
-
+nirepage/static/img
 .pytest_cache/
 .coverage
 htmlcov/
