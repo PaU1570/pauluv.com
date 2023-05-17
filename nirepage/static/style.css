@@ -1,18 +1,47 @@
-[data-bs-theme="dark"] {
-  --bs-body-color: var(--bs-white);
-  --bs-body-color-rgb: #ffffff;
-  --bs-body-bg: var(--bs-dark);
-  --bs-body-bg-rgb: #343a40;
-  --bs-tertiary-bg: #282d33;
-  --bs-nav-pills-link-active-color: #9c1111;
+:root {
+  --text-color: #efefef;
+  --text-color-rbg: 239, 239, 239;
+  --accent-color: #C80A0A;
+  --accent-color-rgb: 200, 10, 10;
+  --accent-color-secondary: #960808;
+  --accent-color-secondary-rgb: 150, 8, 8;
 }
 
-[data-bs-theme="dark"] .dropdown-menu {
-  --bs-dropdown-bg: #343a40;
+[data-bs-theme="darkred"] {
+  --bs-body-color: #efefef;
+  --bs-body-color-rgb: 239, 239, 239;
+
+  --bs-body-bg: #202020;
+  --bs-body-bg-rgb: 32, 32, 32;
+
+  --bs-secondary-bg: #101010;
+  --bs-secondary-bg-rgb: 16, 16, 16;
+
+  --bs-tertiary-bg: #303030;
+  --bs-tertiary-bg-rgb: 48, 48, 48;
+
+  --bs-primary: #D62020;
+  --bs-primary-rgb: 214,32,32;
+  --bs-secondary: #7D6C6C;
+  --bs-secondary-rgb: 25, 108, 108;
+
+  --bs-link-color: #0d6efd;
+  --bs-link-color-rgb: 13,110,253;
+  --bs-link-decoration: underline;
+  --bs-link-hover-color: #0a58ca;
+
+  --bs-link-color: var(--text-color);
+  --bs-link-color-rgb: var(--text-color-rgb);
+  --bs-link-hover-color: var(--accent-color);
+  --bs-link-hover-color-rgb: var(--accent-color-rgb);
+}
+
+[data-bs-theme="darkred"] .dropdown-menu {
+  --bs-dropdown-bg: #200000;
   --bs-dropdown-link-active-bg: #464c52;
 }
 
-[data-bs-theme="dark"] .btn-secondary {
+[data-bs-theme="darkred"] .btn-secondary {
   --bs-btn-bg: rgba(96, 125, 139, 0.5);
   --bs-btn-border-color: rgba(255, 255, 255, 0.25);
   --bs-btn-hover-bg: rgba(69, 90, 100, 0.5);
@@ -21,4 +50,53 @@
   --bs-btn-active-border-color: rgba(255, 255, 255, 0.5);
   --bs-btn-focus-border-color: rgba(255, 255, 255, 0.5);
   --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.2);
+}
+
+.navbar-brand {
+  font-size: 2.5em;
+}
+
+.navbar-brand img {
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.nav {
+  padding: 20px;
+}
+
+.nav-pills .nav-link {
+  border: 1px solid;
+  margin: 5px;
+}
+
+.topbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
+}
+
+.bottombar {
+  padding: 20px;
+  border-top: 1px solid;
+}
+
+.main-content {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.main-content .image-col {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 12px;
+}
+
+.main-content .text-col {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.bi {
+  color: var(--text-color);
 }
