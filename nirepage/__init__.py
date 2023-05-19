@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 
 def create_app(test_config=None):
     # create and configure the app
@@ -21,6 +21,11 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    # Route for the custom "content" folder
+    @app.route('/content/<path:filename>')
+    def serve_content(filename):
+        return send_from_directory('content', filename)
 
     # home page
     @app.route('/')

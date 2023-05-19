@@ -6,6 +6,7 @@ __pycache__/
 instance/
 nirepage/static/img/
 nirepage/static/bootstrap-5.3.0-alpha3-dist/
+nirepage/content/CV_Paul_Uriarte.pdf
 
 .pytest_cache/
 .coverage
