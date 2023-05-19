@@ -36,12 +36,11 @@ def create_app(test_config=None):
     def about():
         return render_template('about.html')
 
-    @app.route('/blog')
-    def blog():
-        return render_template('blog.html')
-
     @app.route('/gallery')
     def gallery():
         return render_template('gallery.html')
+
+    from . import blog
+    app.register_blueprint(blog.bp)
     
     return app
