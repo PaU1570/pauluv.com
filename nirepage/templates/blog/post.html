@@ -1,1 +1,18 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center post-header">
+	<div class="col-12">
+		<h1>{{ post_metadata['title'] }}</h1>
+		<span>By {{ post_metadata['author'] }} on <time datetime="{{ post_metadata['date'] }}">{{ post_metadata['date'].strftime('%d %B %Y') }}</time></span>
+	</div>
+</div>
+<div class="row post-content">
+	<div class="col-12">
+		{{ post_content_html|safe }}
+	</div>
+</div>
+
+
+{% endblock %}

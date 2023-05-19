@@ -100,3 +100,17 @@
 .bi {
   color: var(--text-color);
 }
+
+/* POST */
+.post-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
+}
+
+.post-content {
+  padding: 20px;
+}
+
+.post-content .img-fluid {
+  max-width: 50%;
+}
