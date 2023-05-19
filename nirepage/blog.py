@@ -10,12 +10,6 @@ from markupsafe import escape
 
 bp = Blueprint('blog', __name__, url_prefix='/blog')
 
-# Route for the custom "content" folder
-@bp.route('/content/<path:filename>')
-def post_image(filename):
-    return send_from_directory('content', filename)
-
-
 @bp.route('/')
 def index():
     return render_template('blog/blog.html')
