@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+	<div class="col-12 col-md-8 text-col">
+		<h1>You</h1>
+		<span>Have stumbled upon my personal website.</span>
+	</div>
+	<div class="col-6 col-md-4 image-col bg-body-tertiary">
+		<img class="img-fluid" src="{{ url_for('static', filename='img/Unicorns.jpg') }}">
+	</div>
+</div>
+
+{% endblock %}
