@@ -103,7 +103,7 @@
 
 /* POST */
 .post-header {
-  padding-bottom: 20px;
+  padding: 20px;
   border-bottom: 1px solid;
 }
 
@@ -111,6 +111,22 @@
   padding: 20px;
 }
 
-.post-content .img-fluid {
+.post-content .img-fluid, .post-preview .img-fluid {
   max-width: 50%;
+}
+
+.post-preview {
+  border: 1px solid;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.post-preview-title {
+  border-bottom: 1px solid;
+  padding-bottom: 20px;
+}
+
+.post-preview-body {
+  padding-top: 20px;
 }

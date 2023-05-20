@@ -3,7 +3,7 @@ title: "My first post"
 date: 2023-05-19T23:05:38 
 author: "Paul U.V."
 categories:
-  - Programming
+  - test
 tags: 
   - html
   - website
