@@ -5,7 +5,7 @@
 <div class="row justify-content-center post-header">
 	<div class="col-12">
 		<h1>{{ post_metadata['title'] }}</h1>
-		<span>By {{ post_metadata['author'] }} on <time datetime="{{ post_metadata['date'] }}">{{ post_metadata['date'].strftime('%d %B %Y') }}</time></span>
+		<span >By <span class="author-name">{{ post_metadata['author'] }}</span> on <time datetime="{{ post_metadata['date'] }}">{{ post_metadata['date'].strftime('%d %B %Y') }}</time></span>
 	</div>
 </div>
 <div class="row post-content">

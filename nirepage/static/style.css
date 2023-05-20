@@ -97,8 +97,10 @@
   padding-bottom: 20px;
 }
 
-.bi {
-  color: var(--text-color);
+.icon-link {
+  text-decoration: none;
+  font-size: 2em;
+  margin-right: 10px;
 }
 
 /* POST */
@@ -127,6 +129,18 @@
   padding-bottom: 20px;
 }
 
+.post-preview-title a {
+  text-decoration: none;
+}
+
 .post-preview-body {
+  padding-top: 20px;
+}
+
+.author-name {
+  color: var(--accent-color);
+}
+
+.read-more {
   padding-top: 20px;
 }

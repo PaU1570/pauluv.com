@@ -3,12 +3,30 @@
 {% block content %}
 
 <div class="row justify-content-center">
-	<div class="col-12 col-md-8 text-col">
+	<div class="col-12 order-2 col-md-8 order-md-1 text-col">
 		<h1>You</h1>
-		<span>Have stumbled upon my personal website.</span>
+		<p>Have stumbled upon my personal website. Do let me know if you like the design and color scheme.</p>
+		<p>I'm Paul Uriarte, currently a student at ETH Zürich. I started this website as a personal side project, intended as a sort of digital diary and tinkering playground. I don't really expect many people other than myself to use this website (how did you find it, anyway?), but if you do, welcome. My intention is to write about whatever I am thinking about, and see what comes out.</p>
+		<p>If you are curious about the unicorn picture, it's a watercolor drawing I did back in 2017, which I often use as my profile picture. I copied the concept from some image I found on Google, so don't give me points for creativity. I do have some more stuff on my Instagram and the Gallery tab.</p>
+		<p>Here are other places on the internet where you can find me:</p>
+
+		<a href="#" class="icon-link">
+			<svg class="bi bi-github" width="32" height="32" fill="currentColor">
+				<use xlink:href="{{ url_for('static', filename='icons/icons.svg') }}#instagram"/>
+			</svg>
+		</a>
+		<a href="#" class="icon-link">
+			<svg class="bi bi-github" width="32" height="32" fill="currentColor">
+				<use xlink:href="{{ url_for('static', filename='icons/icons.svg') }}#github"/>
+			</svg>
+		</a>
 	</div>
-	<div class="col-6 col-md-4 image-col bg-body-tertiary">
-		<img class="img-fluid" src="{{ url_for('static', filename='img/Unicorns.jpg') }}">
+	<div class="col-6 order-1 col-md-4 order-md-2 d-flex align-items-center">
+		<div class="row">
+			<div class="col-12 image-col bg-body-tertiary">
+				<img class="img-fluid" src="{{ url_for('static', filename='img/Unicorns.jpg') }}">
+			</div>
+		</div>
 	</div>
 </div>
 

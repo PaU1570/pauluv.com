@@ -4,16 +4,20 @@
 
 {% for category, title, metadata, html_content in posts %}
 
-<div class="row post-preview bg-body-tertiary">
-	<div class="col-12 post-preview-title">
-		<a href="{{ url_for('blog.show_post', post_category=category, post_title=title) }}"><h1>{{ metadata['title'] }}</h1></a>
-		<span>By {{ metadata['author'] }} on <time datetime="{{ metadata['date'] }}">{{ metadata['date'].strftime('%d %B %Y') }}</time></span>
-	</div>
-	<div class="col-12 post-preview-body">
-		{{ html_content|safe }}
-	</div>
-	<div class="col-12">
-		<a href="{{ url_for('blog.show_post', post_category=category, post_title=title) }}">Read more...</a>
+<div class="row justify-content-center">
+	<div class="col-11">
+		<div class="row post-preview bg-body-tertiary">
+			<div class="col-12 post-preview-title">
+				<a href="{{ url_for('blog.show_post', post_category=category, post_title=title) }}"><h1>{{ metadata['title'] }}</h1></a>
+				<span>By <span class="author-name">{{ metadata['author'] }}</span> on <time datetime="{{ metadata['date'] }}">{{ metadata['date'].strftime('%d %B %Y') }}</time></span>
+			</div>
+			<div class="col-12 post-preview-body">
+				{{ html_content|safe }}
+			</div>
+			<div class="col-12 read-more">
+				<a href="{{ url_for('blog.show_post', post_category=category, post_title=title) }}">Read more...</a>
+			</div>
+		</div>
 	</div>
 </div>
 
