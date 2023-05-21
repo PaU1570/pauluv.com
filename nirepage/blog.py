@@ -5,16 +5,18 @@ import os
 import math
 
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, current_app, url_for
+    Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 
 from markupsafe import escape
 
+from . import get_paths
+PATHS = get_paths()
+
 bp = Blueprint('blog', __name__, url_prefix='/<lang_code>/blog')
 
 def load_post(post_category, post_title):
-    abs_path = current_app.root_path
-    post_path = '{0}/content/{1}/{2}'.format(abs_path, escape(post_category), escape(post_title))
+    post_path = '{0}/{1}/{2}'.format(PATHS['CONTENT_PATH'], escape(post_category), escape(post_title))
     matches = []
     available_in_lang = True
     for file in os.listdir(post_path):
@@ -35,7 +37,7 @@ def load_post(post_category, post_title):
         post = frontmatter.load(file)
 
     # replace relative image paths with correct paths
-    fig_path = '/content/{}/{}/'.format(escape(post_category), escape(post_title))
+    fig_path = '{}/{}/{}/'.format(PATHS['CONTENT_PATH'], escape(post_category), escape(post_title))
     post_content = post.content.replace('<img src="', f'<img class="img-fluid mx-auto d-block" src="{fig_path}')
 
     post_content_html = markdown2.markdown(post_content)
@@ -44,7 +46,7 @@ def load_post(post_category, post_title):
 
 def get_all_posts():
     ''' Returns a list of tuples(category, title, metadata, html_content) with all the posts sorted from most recent to oldest. '''
-    content_path = current_app.root_path + '/content'
+    content_path = PATHS['CONTENT_PATH']
     posts = []
     for category in os.listdir(content_path):
         if os.path.isdir(os.path.join(content_path, category)):
