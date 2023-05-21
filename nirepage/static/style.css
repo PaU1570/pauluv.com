@@ -144,3 +144,17 @@
 .read-more {
   padding-top: 20px;
 }
+
+.blog-not-available {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.exclamation {
+  padding-right: 5px;
+}
+
+.arrow-link {
+  text-decoration: none;
+}

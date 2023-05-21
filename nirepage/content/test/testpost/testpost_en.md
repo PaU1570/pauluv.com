@@ -1,6 +1,6 @@
 ---
 title: "My first post" 
-date: 2023-05-19T23:05:38 
+date: 2023-05-19
 author: "Paul U.V."
 categories:
   - test

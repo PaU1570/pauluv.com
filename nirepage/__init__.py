@@ -1,7 +1,21 @@
 import os
 import datetime
+import json
 
-from flask import Flask, render_template, send_from_directory, g, request
+from flask import Flask, render_template, send_from_directory, g, request, current_app
+
+def load_translation(lang_code):
+    lang_file = current_app.root_path + '/static/translations/{}.json'.format(lang_code)
+    # Fall back to english as default
+    if not os.path.isfile(lang_file):
+        lang_file = current_app.root_path + '/static/translations/en.json'
+
+    with open(lang_file) as f:
+        translation = json.load(f)
+
+    return translation
+
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -36,6 +50,7 @@ def create_app(test_config=None):
         g.lang_code = values.pop('lang_code', None)
         if g.lang_code not in ['en', 'es', 'eus']:
             g.lang_code = 'en'
+        g.t = load_translation(g.lang_code)
 
     # Route for the custom "content" folder
     @app.route('/content/<path:filename>')

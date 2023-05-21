@@ -1,0 +1,22 @@
+{
+	"home": "Inicio",
+	"about": "Acerca de",
+	"blog": "Blog",
+	"gallery": "Galería",
+
+	"January": "enero",
+    "February": "febrero",
+    "March": "marzo",
+    "April": "abril",
+    "May": "mayo",
+    "June": "junio",
+    "July": "julio",
+    "August": "agosto",
+    "September": "septiembre",
+    "October": "octubre",
+    "November": "noviembre",
+    "December": "diciembre",
+
+    "read more": "Leer más",
+    "language not available": "Lo siento, este post no está disponible en español"
+}

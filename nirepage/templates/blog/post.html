@@ -4,8 +4,26 @@
 
 <div class="row justify-content-center post-header">
 	<div class="col-12">
-		<h1>{{ post_metadata['title'] }}</h1>
-		<span >By <span class="author-name">{{ post_metadata['author'] }}</span> on <time datetime="{{ post_metadata['date'] }}">{{ post_metadata['date'].strftime('%d %B %Y') }}</time></span>
+
+		{% if not available_in_lang %}
+		<div class="blog-not-available text-warning">
+			<svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor" class="bi exclamation" viewBox="0 0 16 16">
+				<use xlink:href="{{ url_for('static', filename='icons/icons.svg') }}#exclamation"/>
+			</svg>
+			{{ g.t.get('language not available', 'Not available in selected language.') }}.
+		</div>
+		{% endif %}
+
+		<h1>{{ metadata['title'] }}</h1>
+		{% if g.lang_code == 'en' %}
+		<span>By <span class="author-name">{{ metadata['author'] }}</span> on <time datetime="{{ metadata['date'] }}">{{ metadata['date'].strftime('%d %B %Y') }}</time></span>
+
+		{% elif g.lang_code == 'eus' %}
+		<span><span class="author-name">{{ metadata['author'] }}</span>(e)k idatzia <time datetime="{{ metadata['date'] }}">{{ metadata['date'].strftime('%Y') }}(e)ko {{ g.t.get(metadata['date'].strftime('%B'), '?') }}ren {{ metadata['date'].strftime('%d') }}(e)an</time></span>
+
+		{% elif g.lang_code == 'es' %}
+		<span>Por <span class="author-name">{{ metadata['author'] }}</span> el <time datetime="{{ metadata['date'] }}">{{ metadata['date'].strftime('%d') }} de {{ g.t.get(metadata['date'].strftime('%B'), '?') }} de {{ metadata['date'].strftime('%Y') }}</time></span>
+		{% endif %}
 	</div>
 </div>
 <div class="row post-content">

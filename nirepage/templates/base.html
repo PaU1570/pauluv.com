@@ -21,19 +21,19 @@
 			</div>
 
 			<ul class="nav nav-pills justify-content-center">
-			  <li class="nav-item"><a class="nav-link" href="{{ url_for('index', lang_code=g.lang_code) }}">Home</a></li>
-			  <li class="nav-item"><a class="nav-link" href="{{ url_for('about', lang_code=g.lang_code) }}">About</a></li>
-			  <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-			  <li class="nav-item"><a class="nav-link" href="{{ url_for('gallery', lang_code=g.lang_code) }}">Gallery</a></li>
+			  <li class="nav-item"><a class="nav-link" href="{{ url_for('index', lang_code=g.lang_code) }}">{{ g.t.get('home', 'Home') }}</a></li>
+			  <li class="nav-item"><a class="nav-link" href="{{ url_for('about', lang_code=g.lang_code) }}">{{ g.t.get('about', 'About') }}</a></li>
+			  <li class="nav-item"><a class="nav-link" href="{{ url_for('blog.index', lang_code=g.lang_code) }}">{{ g.t.get('blog', 'Blog') }}</a></li>
+			  <li class="nav-item"><a class="nav-link" href="{{ url_for('gallery', lang_code=g.lang_code) }}">{{ g.t.get('gallery', 'Gallery') }}</a></li>
 			</ul>
 			<div class="language-select">
-				<a href="{{ url_for(request.endpoint, lang_code='en') }}">English</a><span> / </span><a href="{{ url_for(request.endpoint, lang_code='eus') }}">Euskara</a><span> / </span><a href="{{ url_for(request.endpoint, lang_code='es') }}">Castellano</a>
+				<a href="{{ url_for(request.endpoint, lang_code='en', **g.get('url_args', {})) }}">English</a><span> / </span><a href="{{ url_for(request.endpoint, lang_code='eus', **g.get('url_args', {})) }}">Euskara</a><span> / </span><a href="{{ url_for(request.endpoint, lang_code='es', **g.get('url_args', {})) }}">Castellano</a>
 			</div>
 		</div>
 	</nav>
 </header>
 
-<div class="container main-content">
+<div class="container main-content bg">
 
 	{% block content %}
 	{% endblock %}

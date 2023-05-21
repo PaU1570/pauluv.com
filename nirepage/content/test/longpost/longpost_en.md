@@ -1,6 +1,6 @@
 ---
 title: "Space is big" 
-date: 2023-05-20T12:21:38 
+date: 2023-05-20
 author: "ChatGPT"
 categories:
   - test

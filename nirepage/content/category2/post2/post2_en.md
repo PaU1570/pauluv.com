@@ -1,6 +1,6 @@
 ---
 title: "My second post" 
-date: 2023-05-20T10:58:38 
+date: 2023-05-20
 author: "Paul U.V."
 categories:
   - category2

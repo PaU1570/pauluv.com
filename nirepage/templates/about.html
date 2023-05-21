@@ -3,11 +3,29 @@
 {% block content %}
 <div class="row justify-content-center">
 	<div class="col-12">
+
+		{% if g.lang_code == 'en' %}
 		<h1>About Me</h1>
 		<p>I am Paul Uriarte Vicandi, born {{ age }} years ago in northern Spain (<a href="https://en.wikipedia.org/wiki/Basque_Country_(autonomous_community)" target="_blank">Basque Country</a>). After finishing high school, I went to the University of California, Los Angeles (UCLA), where I obtained my bachelor's degree in physics with <em>magna cum laude</em> honors. Since September 2022, I am a master's student in the Quantum Engineering program at ETH Z&uuml;rich.</p>
 		<p>As my background might suggest, I'm interested in physics, specially quantum technologies, and I'm very excited to work in such a bleeding-edge field. Other interests include software and electrical engineering.</p>
 		<p>In my spare time, I like to learn about random things, daydream, and work on DIY projects involving electronics, software, and light amounts of disaster. I (may) write about some of them in my blog. Oh, and I also do the typical stuff like watch movies, draw, and vegetate. Lately I've been particulary interested in urban planning and design, courtesy of <a href="https://www.youtube.com/c/notjustbikes" target="_blank">Not Just Bikes</a> and Cities: Skylines.</p>
 		<p>You can download my CV in PDF form <a href="{{ url_for('static', filename='files/CV_Paul_Uriarte.pdf') }}" target="_blank">here</a> (last updated on 20 May 2023).</p>
+
+		{% elif g.lang_code == 'eus' %}
+		<h1>Niri Buruz</h1>
+		<p>Paul Uriarte naiz, Bizkaian jaioa orain dela {{ age }} urte. Batxilergoa amaitu ondoren, AEBra joan nintzen fisika ikastera Kaliforniako Unibertsitatean, Los Angeles-en (UCLA). <em>Magna cum laude</em> notarekin graduatu nintzen 2021eko Abenduan. 2022eko Irailetik, ETH Z&uuml;rich-en nago Ingeniaritza Kuantiko masterra egiten.</p>
+		<p>Aurrekotik sumatu daitekeenez, fisika interesatzen zait, batez ere teknologia kuantikoak, eta oso pozik nago hain arlo aurreratuaren parte izateaz. Ingeniaritza elektrikoaren eta software-aren munduan ere sartua daukat behatz edo hankaren bat.</p>
+		<p>Nire aisialdian, hainbat gauza ezberdinei buruz ikastea, egunez amestea, eta 'DIY' proiektuak egitea gustatzen zait. Azken hauek elektronika eta teknologia izaten dute ardatz, eta desastreren bat edo beste. Agian idatziko dut haiei buruz nire blogean. Gauza normalak ere egiten ditut, hala nola, pelikulak ikusi, marraztu, eta begetatu (begetalek egiten dutena). Azken bolada honetan diseinu eta planifikazio urbanoak piztu dit jakinmina, <a href="https://www.youtube.com/c/notjustbikes" target="_blank">Not Just Bikes</a> YouTube kanalaren eta Cities: Skylines bideojokoaren eskutik.</p>
+		<p>Nire currikuluma PDF formatuan <a href="{{ url_for('static', filename='files/CV_Paul_Uriarte.pdf') }}" target="_blank">hemen (ingelesez)</a> aurki dezakezu (azken aldiz 2023ko Maiatzaren 20an eguneratua).</p>
+
+		{% elif g.lang_code == 'es'%}
+		<h1>Sobre M&iacute;</h1>
+		<p>Soy Paul Uriarte Vicandi, nacido hace {{ age }} a&ntilde;os en el Pa&iacute;s Vasco. Despu&eacute;s de terminar el bachillerato, obtuve el grado de f&iacute;sica en la Universidad de California, Los Angeles (UCLA) con honores <em>magna cum laude</em>. Desde septiembre de 2022, estoy cursando el m&aacute;ster en Ingenier&iacute;a Cu&aacute;ntica en ETH Z&uuml;rich.</p>
+		<p>Como sugiere mi pasado, estoy interesado en la f&iacute;sica, especialmente las tecnolog&iacute;as cu&aacute;nticas, y me siento muy afortunado de participar en un campo tan vanguardista. Tambi&eacute;n me interesan la ingenier&iacute;a electr&oacute;nica y el software.</p>
+		<p>En mi tiempo libre, me gusta aprender sobre cualquier cosa, so&ntilde;ar de d&iacute;a, y hacer proyectos de 'DIY', los cuales suelen girar entorno a la electr&oacute;nica, el software, y potencialmente el desastre. Tambi&eacute;n hago cosas normales como ver pel&iacute;culas, dibujar, o vegetar. &Uacute;ltimamente, me estoy interesando mucho por el dise&ntilde;o y planificaci&oacute;n urbanos, cortes&iacute;a de <a href="https://www.youtube.com/c/notjustbikes" target="_blank">Not Just Bikes</a> y Cities: Skylines.</p>
+		<p>Puedes descargar mi CV en formato PDF <a href="{{ url_for('static', filename='files/CV_Paul_Uriarte.pdf') }}" target="_blank">aqu&iacute; (en ingl&eacute;s)</a> (actualizado por &uacute;ltima vez el 20 de mayo de 2023).</p>
+
+		{% endif %}
 	</div>
 
 	
