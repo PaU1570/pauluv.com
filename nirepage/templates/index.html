@@ -4,20 +4,53 @@
 
 <div class="row justify-content-center">
 	<div class="col-12 order-2 col-md-8 order-md-1 text-col">
+
+		{% if g.lang_code == 'en' %}
 		<h1>You</h1>
 		<p>Have stumbled upon my personal website. Do let me know if you like the design and color scheme.</p>
-		<p>I'm Paul Uriarte, currently a student at ETH Zürich. I started this website as a personal side project, intended as a sort of digital diary and tinkering playground. I don't really expect many people other than myself to use this website (how did you find it, anyway?), but if you do, welcome. My intention is to write about whatever I am thinking about, and see what comes out.</p>
-		<p>If you are curious about the unicorn picture, it's a watercolor drawing I did back in 2017, which I often use as my profile picture. I copied the concept from some image I found on Google, so don't give me points for creativity. I do have some more stuff on my Instagram and the Gallery tab.</p>
+		<p>I'm Paul Uriarte, currently a student at <a href="https://en.wikipedia.org/wiki/ETH_Zurich" target="_blank">ETH Zürich</a>. I started this website as a personal side project, intended as a sort of digital diary and tinkering playground. I don't really expect many people other than myself to use this website (how did you find it, anyway?), but if you do, welcome. My intention is to write about whatever I am thinking about, and see what comes out.</p>
+		<p>If you are curious about the unicorn picture, it's a watercolor drawing I did back in 2017, which I often use as my profile picture. I copied the concept from some image I found on Google, so don't give me any points for creativity. I do have some more stuff on my Instagram and the Gallery tab.</p>
 		<p>Here are other places on the internet where you can find me:</p>
 
-		<a href="#" class="icon-link">
+		{% elif g.lang_code == 'eus' %}
+		<h1>Zu</h1>
+		<p>Nire web-orri pertsonalera heldu zara. Zer iruditzen zaizkizu diseinua eta kolore eskema?</p>
+		<p>Paul Uriarte naiz, momentu honetan <a href="https://eu.wikipedia.org/wiki/ETH_Zürich" target="_blank">ETH Zürich</a>-eko ikaslea. Web-orri hau egitea erabaki nuen nire aisialdian, trasteatzeko jolastoki moduan eta agian eguneroko digital gisa erabiltzeko ere. Ez dut espero ni ez den inork orri hau erabiltzea (nola heldu zara zu hona?), baina jada hemen zaudenez, ongi etorri. Momentuan buruan dudanari buruz idaztea da ideia, ikusiko dugu ea zer ateratzen den.</p>
+		<p>Adarbakarren irudiaren buruz gehiago jakin nahi baduzu, nik 2017an egindako akuarela margolan bat da, askotan profil irudirako erabiltzen dudana. Baina ez pentsa nik asmatutako irudi bat denik; Google-etik ostu nuen. Horrelakoa da artistaren bizitza. Baditut obra gehiago nire Instagram-ean eta Galeria orrian.</p>
+		<p>Hona hemen non aurkitu nazakezun sareetan:</p>
+
+		{% elif g.lang_code == 'es' %}
+		<h1>T&uacute;</h1>
+		<p>Has aterrizado en mi p&aacute;gina web personal. &iquest;Qu&eacute; te parecen el dise&ntilde;o y los colores?</p>
+		<p>Soy Paul Uriarte, actualmente estudiante en <a href="https://es.wikipedia.org/wiki/ETH_Zurich" target="_blank">ETH Zürich</a>. Empec&eacute; a contstruir esta p&aacute;gina web como un proyecto personal, para utilizarlo como un lugar de trasteo y quiz&aacute; como diario digital. No espero que nadie que no sea yo utilize esta p&aacute;gina (c&oacute;mo has llegado aqu&iacute;, por cierto?), pero ya que est&aacute;s aqu&iacute;, bienvenido/a. Mi intenci&oacute;n es escribir lo que sea que me pasa por la cabeza en el momento, y a ver qu&eacute; sale.</p>
+		<p>Si quieres saber m&aacute;s sobre la imagen de los unicornios, es una acuarela que pint&eacute; all&aacute; por 2017, y que suelo usar como foto de perfil. Pero no me atribuyas una originalidad que no tengo, pues la copi&eacute; de una foto que encontr&eacute; en Google. Tengo m&aacute; obras en mi Instagram y en la p&aacute;gina de Galer&iacute;a.</p>
+		<p>Puedes encontrarme en otros lugares de la red:</p>
+
+		{% endif %}
+
+		<a href="mailto:pauluv@ni.eus" target="_blank" class="icon-link">
+			<svg class="bi bi-github" width="32" height="32" fill="currentColor">
+				<use xlink:href="{{ url_for('static', filename='icons/icons.svg') }}#email"/>
+			</svg>
+		</a>
+		<a href="https://www.instagram.com/paul.__.uv/" target="_blank" class="icon-link">
 			<svg class="bi bi-github" width="32" height="32" fill="currentColor">
 				<use xlink:href="{{ url_for('static', filename='icons/icons.svg') }}#instagram"/>
 			</svg>
 		</a>
-		<a href="#" class="icon-link">
+		<a href="https://github.com/PaU1570" target="_blank" class="icon-link">
 			<svg class="bi bi-github" width="32" height="32" fill="currentColor">
 				<use xlink:href="{{ url_for('static', filename='icons/icons.svg') }}#github"/>
+			</svg>
+		</a>
+		<a href="https://www.linkedin.com/in/pauluv/" target="_blank" class="icon-link">
+			<svg class="bi bi-github" width="32" height="32" fill="currentColor">
+				<use xlink:href="{{ url_for('static', filename='icons/icons.svg') }}#linkedin"/>
+			</svg>
+		</a>
+		<a href="https://www.chess.com/member/sphericalharmonic" target="_blank" class="icon-link">
+			<svg class="bi bi-github" width="32" height="32" fill="currentColor">
+				<use xlink:href="{{ url_for('static', filename='icons/icons.svg') }}#chesscom"/>
 			</svg>
 		</a>
 	</div>

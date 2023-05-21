@@ -21,13 +21,13 @@
 			</div>
 
 			<ul class="nav nav-pills justify-content-center">
-			  <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-			  <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+			  <li class="nav-item"><a class="nav-link" href="{{ url_for('index', lang_code=g.lang_code) }}">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="{{ url_for('about', lang_code=g.lang_code) }}">About</a></li>
 			  <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-			  <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
+			  <li class="nav-item"><a class="nav-link" href="{{ url_for('gallery', lang_code=g.lang_code) }}">Gallery</a></li>
 			</ul>
 			<div class="language-select">
-				<a href="#">English</a><span> / </span><a href="#">Euskara</a><span> / </span><a href="#">Castellano</a>
+				<a href="{{ url_for(request.endpoint, lang_code='en') }}">English</a><span> / </span><a href="{{ url_for(request.endpoint, lang_code='eus') }}">Euskara</a><span> / </span><a href="{{ url_for(request.endpoint, lang_code='es') }}">Castellano</a>
 			</div>
 		</div>
 	</nav>

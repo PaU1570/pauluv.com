@@ -1,6 +1,7 @@
 import os
+import datetime
 
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, g, request
 
 def create_app(test_config=None):
     # create and configure the app
@@ -22,21 +23,40 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    # Localization
+    @app.url_defaults
+    def add_language_code(endpoint, values):
+        if 'lang_code' in values or not g.lang_code:
+            return
+        if app.url_map.is_endpoint_expecting(endpoint, 'lang_code'):
+            values['lang_code'] = g.lang_code
+
+    @app.url_value_preprocessor
+    def pull_lang_code(endpoint, values):
+        g.lang_code = values.pop('lang_code', None)
+        if g.lang_code not in ['en', 'es', 'eus']:
+            g.lang_code = 'en'
+
     # Route for the custom "content" folder
     @app.route('/content/<path:filename>')
     def serve_content(filename):
         return send_from_directory('content', filename)
 
-    # home page
+    # Pages
     @app.route('/')
+    @app.route('/<lang_code>/')
     def index():
         return render_template('index.html')
 
     @app.route('/about')
+    @app.route('/<lang_code>/about')
     def about():
-        return render_template('about.html')
+        now = datetime.datetime.now()
+        age = now.year - 2000
+        return render_template('about.html', age = age)
 
     @app.route('/gallery')
+    @app.route('/<lang_code>/gallery')
     def gallery():
         return render_template('gallery.html')
 
