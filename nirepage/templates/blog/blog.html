@@ -2,6 +2,13 @@
 
 {% block content %}
 
+<div class="row justify-content-center">
+	<div class="col-11">
+		<h1>{{ g.t.get('blog', 'Blog') }}</h1>
+		<p>{{ g.t.get('blog description', 'This is my blog.') }}</p>
+	</div>
+</div>
+
 {% for category, title, metadata, html_content, available in posts[start:end] %}
 
 <div class="row justify-content-center">
@@ -52,7 +59,7 @@
 			</svg>
 		</a>
 		{% endif %}
-		
+
 		{% if g.lang_code == 'en' %}
 		<span>Page {{ current_page }} of {{ n_pages }}</span>
 		{% elif g.lang_code == 'eus' %}

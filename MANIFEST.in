@@ -1,0 +1,4 @@
+graft nirepage/static
+graft nirepage/templates
+graft nirepage/content
+global-exclude *.pyc
