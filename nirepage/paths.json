@@ -1,4 +1,4 @@
 {
-	"CONTENT_PATH": "/Users/pauluv/Downloads/testvolumes/content",
-	"IMG_PATH": "/Users/pauluv/Downloads/testvolumes/img"
+	"CONTENT_PATH": "/content",
+	"IMG_PATH": "/img"
 }

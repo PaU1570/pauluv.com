@@ -4,8 +4,12 @@ import json
 
 from flask import Flask, render_template, send_from_directory, g, request, current_app
 
+testmode = False
 def get_paths():
-    file_path = os.path.join(os.path.dirname(__file__), 'paths.json')
+    if testmode:
+        file_path = os.path.join(os.path.dirname(__file__), 'paths-test.json')
+    else:
+        file_path = os.path.join(os.path.dirname(__file__), 'paths.json')
     with open(file_path) as f:
         PATHS = json.load(f)
     return PATHS
