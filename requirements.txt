@@ -7,8 +7,6 @@ itsdangerous==2.1.2
 Jinja2==3.1.2
 markdown2==2.4.8
 MarkupSafe==2.1.2
-# Editable Git install with no remote (nirepage==0.1)
--e /Users/pauluv/Documents/Code/pauluv
 packaging==23.1
 pyproject_hooks==1.0.0
 python-frontmatter==1.0.0
