@@ -4,7 +4,7 @@ import json
 
 from flask import Flask, render_template, send_from_directory, g, request, current_app
 
-testmode = False
+testmode = os.getenv("TESTMODE", False)
 def get_paths():
     if testmode:
         file_path = os.path.join(os.path.dirname(__file__), 'paths-test.json')
