@@ -53,8 +53,11 @@ def create_app(test_config=None):
 
     @app.url_value_preprocessor
     def pull_lang_code(endpoint, values):
-        g.lang_code = values.pop('lang_code', None)
-        if g.lang_code not in ['en', 'es', 'eus']:
+        try:
+            g.lang_code = values.pop('lang_code', None)
+            if g.lang_code not in ['en', 'es', 'eus']:
+                g.lang_code = 'en'
+        except AttributeError:
             g.lang_code = 'en'
         g.t = load_translation(g.lang_code)
 

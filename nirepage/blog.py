@@ -37,8 +37,8 @@ def load_post(post_category, post_title):
         post = frontmatter.load(file)
 
     # replace relative image paths with correct paths
-    fig_path = '{}/{}/{}/'.format(PATHS['CONTENT_PATH'], escape(post_category), escape(post_title))
-    post_content = post.content.replace('<img src="', f'<img class="img-fluid mx-auto d-block" src="{fig_path}')
+    fig_path = url_for('serve_content', filename='{}/{}'.format(escape(post_category), escape(post_title)))
+    post_content = post.content.replace('<img src="', f'<img class="img-fluid mx-auto d-block" src="{fig_path}/')
 
     post_content_html = markdown2.markdown(post_content)
 
