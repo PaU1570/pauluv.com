@@ -57,7 +57,7 @@ def create_app(test_config=None):
 
     @app.route('/img/<path:filename>')
     def serve_img(filename):
-        return send_from_directory('img', filename)
+        return send_from_directory('static/img', filename)
 
     # Pages
     @app.route('/')
