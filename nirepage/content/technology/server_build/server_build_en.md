@@ -51,6 +51,6 @@ I am running the [Unraid](https://unraid.net) operating system. It is not free l
   - **PhotoPrism**: The best photo organizer app that I found. I particularly like the map view, although it does require your photos to be geotagged.
 
 - **Web**: What I use to host this website.
-  - **pauluv**: A custom docker container based on ![this](https://hub.docker.com/r/tiangolo/meinheld-gunicorn-flask) that I use to run this website (Flask based).
+  - **pauluv**: A custom docker container based on [this](https://hub.docker.com/r/tiangolo/meinheld-gunicorn-flask) that I use to run this website (Flask based).
   - **SWAG**: nginx webserver and reverse proxy for my apps, as well as auto SSL certification, and fail2ban intrusion prevention. Nice all-in-one package to host a website on your Unraid server. I essentially use it as a reverse proxy for the **pauluv** container.
   - **duckdns**: To map my dynamic IP to a static domain.
