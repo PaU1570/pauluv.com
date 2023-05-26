@@ -10,7 +10,7 @@ tags:
   - hardware
 ---
 
-As the first blog post on this website, I thought it would be fitting for it to be about the infrastructure on which everything runs. From the hardware to the software and everything in between, this post is a comprehensive guide to the inner and outer workings of this server, henceforth to be referred to as GureServer (Basque for 'OurServer', _USSR anthem softly plays in the background_). Let's get started, shall we?
+As the first blog post on this website, I thought it would be fitting for it to be about the infrastructure on which everything runs. From the hardware to the software and everything in between, this post is a comprehensive guide to the inner and outer workings of this server, henceforth to be referred to as GureServer (Basque for 'OurServer', _USSR anthem strengthens in the background_). Let's get started, shall we?
 
 ## Hardware
 This server, far from being some fancy homelab with server-grade hardware, is actually quite basic and affordable. For its current duties, it is more than enough, and it will probably still be for a while unless somehow this blog becomes insanely popular. The components are as follows (prices at the time of purchase, January 2022):
@@ -31,3 +31,26 @@ Total cost of the server: 801€. It could have definitely been cheaper (I didn'
 
 ## Software
 I am running the [Unraid](https://unraid.net) operating system. It is not free like other NAS options, but it is very easy to use and has great community support. Most of the services run on docker containers, so here is a list that will hopefully explain what each of them does and how they work with each other:
+
+- **Utility/infrastructure**: These containers provide utilities or services for other applications on the network.
+  - **mosquitto**: Mqtt broker, useful for many IoT things. I mainly use it to communicate with my 3D printer.
+  - **chronos**: I use this to run certain python scripts periodically.
+  - **ZeroTier**: Provides remote access to my Unraid machine through black magic or something. I learned about it when I was trying to set up a VPN for remote access and I found out that I could not open ports on my router due to it being behind a CG NAT (this is no longer the case, but, if it ain't broke don't fix it).
+  - **OpenSpeedTest**: Self explanatory; nice to have :)
+  - **rClone**: Backups!!!! Are you backing up your data? No? Go back your data up!
+  - **hassConfigurator**: Makes editing and checking HomeAssistant configs easy.
+
+- **Home Automation/Monitoring**:
+  - **Home Assistant**: The one and only. You've probably heard of it if you have ever done anything with home automation.
+  - **Frigate**: NVR with AI object detection. Works pretty well with our ReoLink camera, for the most part. I have not been able to get hardware h.265 decoding to work, although I have successfully tested it with other containers. At least I do have AI acceleration with OpenVINO.
+  - **telegraf/InfluxDB/Grafana**: Classic trio to read, store, and display data, respectively, from our Victron solar inverter. Maybe I will write a blog post about this pipeline in the future.
+  - **OctoPrint**: Because who would want to physically carry files back and forth on an SD card? You can also make the printer automatically turn off once it's finished printing, which is nice.
+
+- **Media**:
+  - **Plex**: I tried Jellyfin, but I just don't like the UI as much.
+  - **PhotoPrism**: The best photo organizer app that I found. I particularly like the map view, although it does require your photos to be geotagged.
+
+- **Web**: What I use to host this website.
+  - **pauluv**: A custom docker container based on ![this](https://hub.docker.com/r/tiangolo/meinheld-gunicorn-flask) that I use to run this website (Flask based).
+  - **SWAG**: nginx webserver and reverse proxy for my apps, as well as auto SSL certification, and fail2ban intrusion prevention. Nice all-in-one package to host a website on your Unraid server. I essentially use it as a reverse proxy for the **pauluv** container.
+  - **duckdns**: To map my dynamic IP to a static domain.
