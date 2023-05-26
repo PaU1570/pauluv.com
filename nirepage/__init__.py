@@ -4,17 +4,6 @@ import json
 
 from flask import Flask, render_template, send_from_directory, g, request, current_app
 
-testmode = os.getenv("TESTMODE", False)
-def get_paths():
-    if testmode:
-        file_path = os.path.join(os.path.dirname(__file__), 'paths-test.json')
-    else:
-        file_path = os.path.join(os.path.dirname(__file__), 'paths.json')
-    with open(file_path) as f:
-        PATHS = json.load(f)
-    return PATHS
-PATHS = get_paths()
-
 def load_translation(lang_code):
     lang_file = current_app.root_path + '/static/translations/{}.json'.format(lang_code)
     # Fall back to english as default
@@ -64,11 +53,11 @@ def create_app(test_config=None):
     # Routes for the content and image folders
     @app.route('/content/<path:filename>')
     def serve_content(filename):
-        return send_from_directory(PATHS['CONTENT_PATH'], filename)
+        return send_from_directory('content', filename)
 
     @app.route('/img/<path:filename>')
     def serve_img(filename):
-        return send_from_directory(PATHS['IMG_PATH'], filename)
+        return send_from_directory('img', filename)
 
     # Pages
     @app.route('/')
