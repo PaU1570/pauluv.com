@@ -1,6 +1,6 @@
 ---
 title: "Say hello to my server" 
-date: 2023-05-22
+date: 2023-05-27
 author: "Paul U.V."
 categories:
   - technology
@@ -10,10 +10,10 @@ tags:
   - hardware
 ---
 
-As the first blog post on this website, I thought it would be fitting for it to be about the infrastructure on which everything runs. From the hardware to the software and everything in between, this post is a comprehensive guide to the inner and outer workings of this server, henceforth to be referred to as GureServer (Basque for 'OurServer', _USSR anthem strengthens in the background_). Let's get started, shall we?
+As the first blog post on this website, I thought it would be fitting for it to be about the infrastructure on which everything runs. This post is an overview of the hardware and software that runs the server, henceforth to be referred to as GureServer (Basque for 'OurServer', _USSR anthem strengthens in the background_). Let's get started, shall we?
 
 ## Hardware
-This server, far from being some fancy homelab with server-grade hardware, is actually quite basic and affordable. For its current duties, it is more than enough, and it will probably still be for a while unless somehow this blog becomes insanely popular. The components are as follows (prices at the time of purchase, January 2022):
+GureServer is actually quite basic and affordable. For its current duties, it is more than enough, and it will probably still be for a while unless somehow this blog becomes insanely popular (unlikely). The components are as follows (prices at the time of purchase, January 2022):
 
 - **Intel Core i5-12500** (220€): It is the same as the i5-12400, which was a great bang for the buck, but with slightly higher core clocks. For some reason they were both the same price, so obviously I bought the faster one. I went with intel because, at the time, AMD's latest gen didn't have a similar budget option. I am using the included stock cooler because it works just fine, although that might change once I come around to building a cloud gaming setup.
 - **Asus Prime B660M-K D4** (116€): This one is very simple to explain. It was one of the cheapest motherboards I found with the B660 chipset, which is the lowest tier that supports dual-channel memory. Other than that, the choice of motherboard doesn't really affect performance, and this one has all the expansion I need (for now). I also wasn't willing to spend the extra money to go with DDR5 (this was in the early days of DDR5, when it was quite expensive).
@@ -33,24 +33,27 @@ Total cost of the server: 801€. It could have definitely been cheaper (I didn'
 I am running the [Unraid](https://unraid.net) operating system. It is not free like other NAS options, but it is very easy to use and has great community support. Most of the services run on docker containers, so here is a list that will hopefully explain what each of them does and how they work with each other:
 
 - **Utility/infrastructure**: These containers provide utilities or services for other applications on the network.
-  - **mosquitto**: Mqtt broker, useful for many IoT things. I mainly use it to communicate with my 3D printer.
-  - **chronos**: I use this to run certain python scripts periodically.
-  - **ZeroTier**: Provides remote access to my Unraid machine through black magic or something. I learned about it when I was trying to set up a VPN for remote access and I found out that I could not open ports on my router due to it being behind a CG NAT (this is no longer the case, but, if it ain't broke don't fix it).
-  - **OpenSpeedTest**: Self explanatory; nice to have :)
-  - **rClone**: Backups!!!! Are you backing up your data? No? Go back your data up!
-  - **hassConfigurator**: Makes editing and checking HomeAssistant configs easy.
+    - **mosquitto**: Mqtt broker, useful for many IoT things. I mainly use it to communicate with my 3D printer.
+    - **chronos**: I use this to run certain python scripts periodically.
+    - **ZeroTier**: Provides remote access to my Unraid machine through black magic or something. I learned about it when I was trying to set up a VPN for remote access and I found out that I could not open ports on my router due to it being behind a CG NAT (this is no longer the case, but, if it ain't broke don't fix it).
+    - **OpenSpeedTest**: Self explanatory; nice to have :)
+    - **rClone**: Backups!!!! Are you backing up your data? No? Go back your data up!
+    - **hassConfigurator**: Makes editing and checking HomeAssistant configs easy.
 
 - **Home Automation/Monitoring**:
-  - **Home Assistant**: The one and only. You've probably heard of it if you have ever done anything with home automation.
-  - **Frigate**: NVR with AI object detection. Works pretty well with our ReoLink camera, for the most part. I have not been able to get hardware h.265 decoding to work, although I have successfully tested it with other containers. At least I do have AI acceleration with OpenVINO.
-  - **telegraf/InfluxDB/Grafana**: Classic trio to read, store, and display data, respectively, from our Victron solar inverter. Maybe I will write a blog post about this pipeline in the future.
-  - **OctoPrint**: Because who would want to physically carry files back and forth on an SD card? You can also make the printer automatically turn off once it's finished printing, which is nice.
+    - **Home Assistant**: The one and only. You've probably heard of it if you have ever done anything with home automation.
+    - **Frigate**: NVR with AI object detection. Works pretty well with our ReoLink camera, for the most part. I have not been able to get hardware h.265 decoding to work, although I have successfully tested it with other containers. At least I do have AI acceleration with OpenVINO.
+    - **telegraf/InfluxDB/Grafana**: Classic trio to read, store, and display data, respectively, from our Victron solar inverter. Maybe I will write a blog post about this pipeline in the future.
+    - **OctoPrint**: Because who would want to physically carry files back and forth on an SD card? You can also make the printer automatically turn off once it's finished printing, which is nice.
 
 - **Media**:
-  - **Plex**: I tried Jellyfin, but I just don't like the UI as much.
-  - **PhotoPrism**: The best photo organizer app that I found. I particularly like the map view, although it does require your photos to be geotagged.
+    - **Plex**: I tried Jellyfin, but I just don't like the UI as much.
+    - **PhotoPrism**: The best photo organizer app that I found. I particularly like the map view, although it does require your photos to be geotagged.
 
 - **Web**: What I use to host this website.
-  - **pauluv**: A custom docker container based on [this](https://hub.docker.com/r/tiangolo/meinheld-gunicorn-flask) that I use to run this website (Flask based).
-  - **SWAG**: nginx webserver and reverse proxy for my apps, as well as auto SSL certification, and fail2ban intrusion prevention. Nice all-in-one package to host a website on your Unraid server. I essentially use it as a reverse proxy for the **pauluv** container.
-  - **duckdns**: To map my dynamic IP to a static domain.
+    - **pauluv**: A custom docker container based on [this](https://hub.docker.com/r/tiangolo/meinheld-gunicorn-flask) that I use to run this website (Flask based). The source code is on my [GitHub](https://github.com/PaU1570/pauluv.com) page.
+    - **SWAG**: nginx webserver and reverse proxy for my apps, as well as auto SSL certification, and fail2ban intrusion prevention. Nice all-in-one package to host a website on your Unraid server. I essentially use it as a reverse proxy for the **pauluv** container.
+    - **duckdns**: To map my dynamic IP to a static domain.
+    - **crowdsec**: Seemed like a good idea, not sure if I actually need it.
+
+I also have an old Synology NAS, with two 4TB mirrored drives, where all the media for Plex and Photoprism is stored. I want to eventually consolidate everything onto GureServer, but I have not had the time or willingness to do so yet. Meanwhile, I simply mount the Synology NAS as a share on Unraid, and access everything from there.
