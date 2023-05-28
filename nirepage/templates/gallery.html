@@ -2,6 +2,17 @@
 
 {% block content %}
 
-<h3>This site is under construction.</h3>
+<div class="row justify-content-center">
+	{% for fname in filenames %}
+	<div class="col-11 col-sm-6 col-md-4 col-lg-3 gallery-card-wrapper">
+		<div class="gallery-card bg-body-tertiary text-center">
+			<a href="#">
+				<img class="img-fluid" src="{{ url_for('serve_gallery_img', filename=fname) }}">
+			</a>
+			<p class="gallery-card-text">Caption</p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
 
 {% endblock %}

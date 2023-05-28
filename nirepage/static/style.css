@@ -158,3 +158,22 @@
 .arrow-link {
   text-decoration: none;
 }
+
+
+/* GALLERY */
+.gallery-card-wrapper {
+  padding: 5px;
+}
+.gallery-card {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.gallery-card .img {
+  border-radius: 5px;
+}
+
+.gallery-card-text {
+  padding: 10px;
+  margin: 0px;
+}
