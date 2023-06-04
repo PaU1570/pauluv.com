@@ -9,4 +9,3 @@ COPY ./requirements.txt /app/requirements.txt
 #RUN git clone https://github.com/PaU1570/pauluv.com /app
 
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
-
