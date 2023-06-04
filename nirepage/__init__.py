@@ -80,9 +80,15 @@ def create_app(test_config=None):
     @app.route('/<lang_code>/gallery')
     def gallery():
         gallery_path = current_app.root_path + '/gallery'
-        filenames = [filename for filename in os.listdir(gallery_path)]
+        filenames = [filename for filename in os.listdir(gallery_path) if filename.lower().endswith('.jpg')]
 
-        return render_template('gallery.html', filenames=filenames)
+        try:
+            with open(gallery_path + '/captions.json', 'r') as f:
+                captions = json.load(f)
+        except:
+            captions = {}
+
+        return render_template('gallery.html', filenames=filenames, captions=captions)
 
     from . import blog
     app.register_blueprint(blog.bp)

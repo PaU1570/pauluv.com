@@ -162,8 +162,10 @@
 
 /* GALLERY */
 .gallery-card-wrapper {
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
+
 .gallery-card {
   padding: 5px;
   border-radius: 5px;

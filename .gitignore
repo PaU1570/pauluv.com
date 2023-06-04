@@ -5,7 +5,7 @@ __pycache__/
 .DS_Store
 
 instance/
-nirepage/gallery/
+nirepage/gallery/*.jpg
 
 .pytest_cache/
 .coverage
