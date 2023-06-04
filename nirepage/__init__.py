@@ -50,7 +50,7 @@ def create_app(test_config=None):
             g.lang_code = 'en'
         g.t = load_translation(g.lang_code)
 
-    # Routes for the content and image folders
+    # Routes for custom folders
     @app.route('/content/<path:filename>')
     def serve_content(filename):
         return send_from_directory('content', filename)
@@ -58,6 +58,10 @@ def create_app(test_config=None):
     @app.route('/img/<path:filename>')
     def serve_img(filename):
         return send_from_directory('static/img', filename)
+
+    @app.route('/gallery/<path:filename>')
+    def serve_gallery_img(filename):
+        return send_from_directory('gallery', filename)
 
     # Pages
     @app.route('/')
@@ -75,7 +79,16 @@ def create_app(test_config=None):
     @app.route('/gallery')
     @app.route('/<lang_code>/gallery')
     def gallery():
-        return render_template('gallery.html')
+        gallery_path = current_app.root_path + '/gallery'
+        filenames = [filename for filename in os.listdir(gallery_path) if filename.lower().endswith('.jpg')]
+
+        try:
+            with open(gallery_path + '/captions.json', 'r') as f:
+                captions = json.load(f)
+        except:
+            captions = {}
+
+        return render_template('gallery.html', filenames=filenames, captions=captions)
 
     from . import blog
     app.register_blueprint(blog.bp)
