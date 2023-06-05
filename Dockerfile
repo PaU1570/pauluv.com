@@ -1,5 +1,7 @@
 FROM tiangolo/meinheld-gunicorn-flask:python3.9
 
+ADD VERSION .
+
 COPY ./requirements.txt /app/requirements.txt
 
 # Install Git
