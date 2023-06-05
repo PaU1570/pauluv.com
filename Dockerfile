@@ -7,7 +7,8 @@ COPY ./requirements.txt /app/requirements.txt
 # Install Git
 #RUN apt-get update && apt-get install -y git
 
-# Clone the GitHub repository
-#RUN git clone https://github.com/PaU1570/pauluv.com /app
+# Copy files
+COPY ./nirepage /app/nirepage/
+COPY ./main.py /app/main.py
 
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
