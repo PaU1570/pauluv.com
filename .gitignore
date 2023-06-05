@@ -6,6 +6,7 @@ __pycache__/
 
 instance/
 nirepage/gallery/*.jpg
+nirepage/gallery/thumb
 
 .pytest_cache/
 .coverage

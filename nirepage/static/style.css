@@ -167,15 +167,20 @@
 }
 
 .gallery-card {
-  padding: 5px;
+  padding: 0px;
   border-radius: 5px;
-}
-
-.gallery-card .img {
-  border-radius: 5px;
+  margin: 0px;
 }
 
 .gallery-card-text {
   padding: 10px;
   margin: 0px;
+}
+
+.gallery-image-container {
+  padding: 5px;
+}
+
+.gallery-image-container img {
+  border-radius: 5px;
 }

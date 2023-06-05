@@ -18,5 +18,60 @@
         "date": "2023/04/23",
         "title": "Lakehouse on Katzensee, Z\u00fcrich",
         "description": "Katzensee, Z\u00fcrich"
+    },
+    "20151119_collage.jpg": {
+        "date": "2015/11/19",
+        "title": "Collage",
+        "description": "Art class at DTSMA, Lafayette"
+    },
+    "20160828_umbrella.jpg": {
+        "date": "2016/08/28",
+        "title": "Melancholic umbrella",
+        "description": null
+    },
+    "20170622_carandache.jpg": {
+        "date": "2017/06/22",
+        "title": "Caran D'Ache",
+        "description": null
+    },
+    "20180904_fallpainting.jpg": {
+        "date": "2018/09/04",
+        "title": "Autumn colours",
+        "description": null
+    },
+    "20181020_roycedrawing.jpg": {
+        "date": "2018/10/20",
+        "title": "Royce Hall Ink",
+        "description": null
+    },
+    "20190717_strawhat.jpg": {
+        "date": "2019/07/17",
+        "title": "Strawhat",
+        "description": null
+    },
+    "20191105_durangodrawing.jpg": {
+        "date": "2019/11/05",
+        "title": "Durango",
+        "description": null
+    },
+    "20191222_durangorain.jpg": {
+        "date": "2019/12/22",
+        "title": "Rainy day",
+        "description": null
+    },
+    "20200319_roycehall.jpg": {
+        "date": "2020/03/19",
+        "title": "Royce Hall, UCLA",
+        "description": null
+    },
+    "20201010_selfportrait.jpg": {
+        "date": "2020/10/10",
+        "title": "Self portrait",
+        "description": null
+    },
+    "20211027_sacrecoeur.jpg": {
+        "date": "2021/10/27",
+        "title": "Sacr\u00e9-Coeur",
+        "description": null
     }
 }
