@@ -74,7 +74,7 @@ def create_app(test_config=None):
     def about():
         now = datetime.datetime.now()
         age = now.year - 2000
-        return render_template('about.html', age = age)
+        return render_template('about.html', age=age)
 
     @app.route('/gallery')
     @app.route('/<lang_code>/gallery')

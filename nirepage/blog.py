@@ -60,7 +60,7 @@ def get_all_posts():
                     posts.append((category, post, metadata, first_paragraph, available_in_lang))
 
     # sort by date
-    posts.sort(key = lambda x: x[2]['date'], reverse = True)
+    posts.sort(key=lambda x: x[2]['date'], reverse=True)
 
     return posts
 
@@ -84,11 +84,13 @@ def index(page_num = 1):
         end = n
 
     g.url_args = {'page_num': page_num}
-    return render_template('blog/blog.html', posts = posts, n_pages = n_pages, n_perpage = n_perpage, current_page = page_num, start = start, end = end)
+
+    return render_template('blog/blog.html', posts=posts, n_pages=n_pages, n_perpage=n_perpage, current_page=page_num, start=start, end=end)
 
 @bp.route('/<post_category>/<post_title>')
 def show_post(post_category, post_title):
     # Read the .md file content
     post_metadata, post_content_html, available_in_lang = load_post(escape(post_category), escape(post_title))
     g.url_args = {'post_category': escape(post_category), 'post_title': escape(post_title)}
-    return render_template('blog/post.html', metadata = post_metadata, post_content_html = post_content_html, available_in_lang = available_in_lang)
+
+    return render_template('blog/post.html', metadata=post_metadata, post_content_html=post_content_html, available_in_lang=available_in_lang)
