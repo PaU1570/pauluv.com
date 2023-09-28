@@ -5,6 +5,4 @@ __pycache__/
 .DS_Store
 
 instance/
-nirepage/gallery/
-nirepage/content/
 build.sh
