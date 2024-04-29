@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="text-warning">
+	{{ g.t.get('gallery reload page', 'If pictures overlap, reload the page') }}.
+</div>
 <div class="row justify-content-start" data-masonry='{"percentPosition": true }'>
 	{% for fname in filenames %}
 	<div class="col-12 col-sm-6 col-md-4 col-lg-3 gallery-card-wrapper px-3 px-sm-1">
 		<div class="row gallery-card bg-body-tertiary text-center">
 			<div class="col-12 gallery-image-container">
-				<a href="{{ url_for('serve_gallery_img', filename=fname) }}" data-lightbox="gallery" data-title="{{ captions.get(fname, {}).get('title', 'Untitled') + ' - ' + captions.get(fname, {}).get('date', 'Date unknown') }}">
+				<a href="{{ url_for('serve_gallery_img', filename=fname) }}" data-lightbox="gallery"
+					data-title="{{ captions.get(fname, {}).get('title', 'Untitled') + ' - ' + captions.get(fname, {}).get('date', 'Date unknown') }}">
 					<img class="img-fluid" src="{{ url_for('serve_gallery_img', filename='thumb/'+fname) }}">
 				</a>
 			</div>

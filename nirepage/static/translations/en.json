@@ -3,8 +3,8 @@
 	"about": "About",
 	"blog": "Blog",
 	"gallery": "Gallery",
-
 	"read more": "Read more",
 	"language not available": "Sorry, this post is not available in English",
-	"blog description": "Welcome to my blog. There is probably not much here."
+	"blog description": "Welcome to my blog. There is probably not much here.",
+	"gallery reload page": "If pictures overlap, reload the page."
 }

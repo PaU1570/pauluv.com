@@ -1,10 +1,9 @@
 {
-	"home": "Hasiera",
-	"about": "Niri buruz",
-	"blog": "Bloga",
-	"gallery": "Galeria",
-
-	"January": "Urtarrila",
+    "home": "Hasiera",
+    "about": "Niri buruz",
+    "blog": "Bloga",
+    "gallery": "Galeria",
+    "January": "Urtarrila",
     "February": "Otsaila",
     "March": "Martxoa",
     "April": "Apirila",
@@ -16,8 +15,8 @@
     "October": "Urria",
     "November": "Azaroa",
     "December": "Abendua",
-
     "read more": "Irakurri gehiago",
     "language not available": "Sentizen dut, post hau ez dago euskaraz erabilgarri",
-    "blog description": "Ongi etorri nire blogera. Seguraski ez da gauza asko egongo hemen."
+    "blog description": "Ongi etorri nire blogera. Seguraski ez da gauza asko egongo hemen.",
+    "gallery reload page": "Argazkiak bata bestearen gainean badaude, orria berriro kargatu."
 }

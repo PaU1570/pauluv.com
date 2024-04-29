@@ -1,10 +1,9 @@
 {
-	"home": "Inicio",
-	"about": "Acerca de",
-	"blog": "Blog",
-	"gallery": "Galería",
-
-	"January": "enero",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "blog": "Blog",
+    "gallery": "Galería",
+    "January": "enero",
     "February": "febrero",
     "March": "marzo",
     "April": "abril",
@@ -16,8 +15,8 @@
     "October": "octubre",
     "November": "noviembre",
     "December": "diciembre",
-
     "read more": "Leer más",
     "language not available": "Lo siento, este post no está disponible en español",
-    "blog description": "Bienvenido/a a mi blog. Probablemente no haya casi nada aquí."
+    "blog description": "Bienvenido/a a mi blog. Probablemente no haya casi nada aquí.",
+    "gallery reload page": "Si las fotos se solapan, recarga la página."
 }
